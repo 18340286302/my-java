@@ -1,0 +1,205 @@
+-- 第一题
+--select empno,ename,sal 
+-- from EMP
+-- where 
+-- sal > (select SAL from emp where EMPNO = '7782') 
+-- and job = (select job from emp where EMPNO = '7369')
+--第二题
+-- select ENAME,sal
+-- from EMP
+-- where sal = 
+-- (select max(sal)
+-- from EMP)
+-- --第三题
+-- select b.deptno,min(a.sal),b.dname  
+-- from EMP a
+-- join dept b on a.deptno = b.deptno
+-- where sal >
+-- (select min(sal) from  emp where deptno = 10 )
+-- GROUP BY b.deptno,b.dname 
+--第四题
+-- select deptno,ename,sal 
+-- from EMP
+-- where sal in (SELECT min(sal) from emp GROUP BY deptno)
+--第五题
+-- select b.ename,a.ename,a.sal
+-- from emp a
+-- join emp b on a.mgr = b.empno
+-- where b.ename = 'KING'
+-- GROUP BY b.ename,a.ename,a.sal
+-- 第六题
+-- select ename,sal,hiredate
+-- from EMP
+-- where HIREDATE > (select hiredate from emp where ename = 'SMITH' )
+-- 第七题
+-- SELECT ENAME
+-- FROM EMP
+-- WHERE DEPTNO IN 
+-- (select DEPTNO
+-- from dept 
+-- where loc = 'NEW YORK')
+--第二种解法
+-- select EMP.ENAME 
+-- from EMP
+-- join dept on EMP.DEPTNO = DEPT. DEPTNO
+-- where loc = 'NEW YORK'
+--第八题
+-- select ENAME,hiredate
+-- from emp
+-- where (deptno,job) in  (select deptno,job from emp where ename = 'SMITH')
+-- AND ENAME <> 'SMITH'
+--第九题
+-- select deptno,ename
+-- from EMP
+-- where sal > (select avg(sal)
+-- from emp)
+--第十题
+-- select b.ename,a.ename,a.sal 
+-- from EMP a 
+-- join emp b on a.mgr = b.empno
+-- where b.ename = 'KING'
+--第十一题
+-- select ename,job
+-- from EMP
+-- where deptno = (select deptno from dept where dname = 'RESEARCH'
+--第十二题
+-- select deptno,avg(sal) 
+-- from emp
+-- GROUP BY deptno
+-- HAVING  avg(sal)  > (select avg(sal) from emp where deptno = 20)
+--第十三题
+-- select a.ename,a.sal,a.sal-c.avgsal mp
+-- from emp a
+-- join dept b on a.deptno =b.DEPTNO
+-- join (select deptno,avg(sal) avgsal from emp GROUP BY deptno) c
+-- on a.deptno = c.deptno
+-- where a.sal > c.avgsal
+--第十四题
+-- select dname
+-- from dept
+-- where deptno in (select DISTINCT(deptno) from emp)
+--第二种做法
+-- select dname
+-- from dept 
+-- where deptno in 
+-- (SELECT deptno 
+-- from emp 
+-- GROUP BY deptno 
+-- HAVING COUNT(deptno) >= 1)
+--第三种
+-- select dname
+-- from DEPT
+-- where deptno in (select deptno from emp GROUP BY deptno )
+-- -
+-- 第十五题
+-- SELECT ENAME 
+-- FROM EMP
+-- WHERE SAL > (SELECT SAL FROM EMP WHERE ENAME = 'SMITH')
+--第十六题
+--SELECT
+-- 	A .ename
+-- FROM
+-- 	emp A
+-- WHERE
+-- 	A .hiredate < (
+-- 		SELECT
+-- 			hiredate
+-- 		FROM
+-- 			emp b
+-- 		WHERE
+-- 			b.empno = A .mgr	
+--第十七题
+-- select a.ename,b.ename
+-- from emp a
+-- join emp b on a.mgr = b.empno
+-- GROUP BY b.ename,a.ename
+--第十八题
+-- SELECT  DEPT.dname,COUNT(EMP.DEPTNO) 
+-- FROM EMP 
+-- JOIN dept on DEPT.deptno = EMP.deptno
+-- GROUP BY EMP.DEPTNO,DEPT.dname
+-- 第十九题
+-- select *
+-- from emp 
+--  where sal in (select max(sal) from EMP
+-- GROUP BY deptno) 
+--第二十题
+-- select ename,sal 
+-- from emp 
+-- where job in (select job from emp where empno = '7369')
+--第二十一题
+-- select ename
+-- from EMP
+-- where deptno in (select deptno from emp where ename like '%W%')
+-- 第二十二题
+-- select ename,SAL
+-- from EMP
+-- where sal > (select avg(sal) from emp )
+-- 第二十三题
+-- select ename,SAL
+-- from EMP a
+-- join  (select deptno,avg(sal) avgsal from emp 
+-- GROUP BY deptno  ) b on a.deptno = b.deptno
+-- where  a.sal > b.avgsal
+-- 第二十四题
+-- select min(a.sal),max(a.ename) 
+-- from emp a
+-- join emp b on a.mgr = b.empno
+-- GROUP BY b.mgr
+--第二种解法
+-- select sal,ename
+-- from EMP
+-- where sal in
+-- (select min(a.sal)
+-- from emp a
+-- join emp b on a.mgr = b.empno
+-- GROUP BY b.empno)
+-- 第二十五题
+-- select HIREDATE,ename
+-- from emp 
+-- where HIREDATE >
+-- 
+-- (
+-- select hiredate
+-- from emp 
+-- where sal =
+-- (select max(sal)
+-- from EMP))
+-- 第二十六题
+-- select avg(EMP.sal),dname 
+-- from emp
+-- join DEPT on EMP.DEPTNO = DEPT.DEPTNO
+-- GROUP BY EMP.deptno,dname
+-- HAVING   avg(EMP.sal) =
+-- (select max(avg(sal))  from EMP GROUP BY deptno) 
+--第二种方法
+
+select 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
